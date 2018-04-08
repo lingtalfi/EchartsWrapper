@@ -164,6 +164,7 @@ EEE;
 
             var series = <?php echo json_encode($series); ?>;
             var theSeries = [];
+            var theLabels = [];
             for (var label in series) {
                 theSeries.push({
                     name: label,
@@ -174,6 +175,7 @@ EEE;
                     },
                     data: series[label]
                 });
+                theLabels.push(label);
             }
 
             var option = {
@@ -184,7 +186,7 @@ EEE;
                 },
                 //     start : 70
                 legend: {
-                    data: ['Nombre de commandes', 'Quantité commandée'],
+                    data: theLabels,
                     type: "scroll",
                     right: 0,
                     orient: "vertical"

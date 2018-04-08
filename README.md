@@ -120,6 +120,10 @@ EEE
 History Log
 ------------------
 
+- 1.0.2 -- 2018-04-08
+
+    - fix legend labels returning typo
+
 - 1.0.1 -- 2018-04-08
 
     - fix wrong namespace, and call to self protected instead of static protected
