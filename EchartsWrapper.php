@@ -1,7 +1,7 @@
 <?php
 
 
-namespace EchartWrapper;
+namespace EchartsWrapper;
 
 use Bat\StringTool;
 
@@ -15,7 +15,7 @@ use Bat\StringTool;
  * <script src="/libs/echarts/echarts.min.js"></script>
  *
  */
-class EchartWrapper
+class EchartsWrapper
 {
     public static $params = [
         'symbolSize' => 6,
@@ -70,7 +70,7 @@ class EchartWrapper
         <script type="text/javascript">
 
 
-            <?php self::jsTop(); ?>
+            <?php static::jsTop(); ?>
 
             var myChart = echarts.init(document.getElementById('<?php echo $cssId; ?>'));
 
@@ -120,7 +120,7 @@ class EchartWrapper
 
             myChart.setOption(option);
 
-            <?php self::jsBottom(); ?>
+            <?php static::jsBottom(); ?>
         </script>
         <?php
     }
@@ -154,7 +154,7 @@ EEE;
         <script type="text/javascript">
 
 
-            <?php self::jsTop(); ?>
+            <?php static::jsTop(); ?>
 
             var tooltipFormatter = "<?php echo self::dquote($tooltipFormatter); ?>";
 
@@ -233,7 +233,7 @@ EEE;
 
             myChart.setOption(option);
 
-            <?php self::jsBottom(); ?>
+            <?php static::jsBottom(); ?>
         </script>
         <?php
     }
