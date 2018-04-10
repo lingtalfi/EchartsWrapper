@@ -24,7 +24,7 @@ class EchartsWrapper
     public static function displayPie(array $options = [])
     {
 
-        self::init();
+        static::init();
         $title = $options['title'] ?? "My title";
 
         /**
@@ -129,7 +129,7 @@ class EchartsWrapper
     public static function displayBasicLineChart(array $options = [])
     {
 
-        self::init();
+        static::init();
 
         //--------------------------------------------
         // USER OPTIONS

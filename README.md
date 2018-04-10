@@ -120,6 +120,10 @@ EEE
 History Log
 ------------------
 
+- 1.1.1 -- 2018-04-10
+
+    - fix init protected using self keyword instead of static
+    
 - 1.1.0 -- 2018-04-10
 
     - add init protected method
