@@ -24,6 +24,7 @@ class EchartsWrapper
     public static function displayPie(array $options = [])
     {
 
+        self::init();
         $title = $options['title'] ?? "My title";
 
         /**
@@ -128,6 +129,7 @@ class EchartsWrapper
     public static function displayBasicLineChart(array $options = [])
     {
 
+        self::init();
 
         //--------------------------------------------
         // USER OPTIONS
@@ -253,6 +255,15 @@ EEE;
     protected static function jsBottom()
     {
     }
+
+    /**
+     * Called by any printer...
+     */
+    protected static function init() // override me
+    {
+
+    }
+
     //--------------------------------------------
     //
     //--------------------------------------------

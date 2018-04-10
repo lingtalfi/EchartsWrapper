@@ -120,6 +120,10 @@ EEE
 History Log
 ------------------
 
+- 1.1.0 -- 2018-04-10
+
+    - add init protected method
+
 - 1.0.2 -- 2018-04-08
 
     - fix legend labels returning typo
