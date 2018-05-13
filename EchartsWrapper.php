@@ -66,6 +66,15 @@ class EchartsWrapper
 
 
         $cssId = self::generateTag($options);
+
+
+        $legendOptions = array_replace([
+            "orient" => "vertical",
+            "right" => "0",
+            "data" => $dataLabels,
+        ], $options['legend'] ?? []);
+
+
         ?>
 
         <script type="text/javascript">
@@ -86,11 +95,7 @@ class EchartsWrapper
                     // formatter: "{a} <br/>{b} : {c} ({d}%)", // a is the series name
                     formatter: "{b} : {c} ({d}%)",
                 },
-                legend: {
-                    orient: 'vertical',
-                    right: 0,
-                    data: <?php echo json_encode($dataLabels); ?>,
-                },
+                legend: <?php echo json_encode($legendOptions); ?>,
                 series: [
                     {
                         // name: 'coucou',

@@ -120,6 +120,10 @@ EEE
 History Log
 ------------------
 
+- 1.2.0 -- 2018-05-13
+
+    - add legend options for EchartsWrapper::displayPie method
+
 - 1.1.1 -- 2018-04-10
 
     - fix init protected using self keyword instead of static
