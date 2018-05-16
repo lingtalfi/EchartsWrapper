@@ -120,6 +120,10 @@ EEE
 History Log
 ------------------
 
+- 1.3.0 -- 2018-05-16
+
+    - add EchartsWrapper::displayCountryMap method
+
 - 1.2.0 -- 2018-05-13
 
     - add legend options for EchartsWrapper::displayPie method

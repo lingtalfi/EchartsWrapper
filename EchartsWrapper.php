@@ -21,6 +21,119 @@ class EchartsWrapper
         'symbolSize' => 6,
     ];
 
+
+    /**
+     * Note: you need the world.js extension in order for this method to work.
+     * // view-source:https://ecomfe.github.io/echarts-examples/public/vendors/echarts/map/js/world.js
+     */
+    public static function displayCountryMap(array $options = [])
+    {
+
+        static::init();
+        $title = $options['title'] ?? "My title";
+
+        /**
+         * Horizontal align of the title
+         * Values are:
+         *      - left (default)
+         *      - center
+         *      - right
+         */
+        $titleAlign = $options['titleAlign'] ?? "left";
+        $dataColors = $options['dataColors'] ?? [];
+        /**
+         * Default label color is same as fan color
+         */
+        $labelColor = $options['labelColor'] ?? null;
+        $title = self::dquote($title);
+
+        /**
+         * array of label => value (a number, the percentage will be computed automatically)
+         */
+        $data = $options['data'] ?? [];
+        $dataRows = [];
+        foreach ($data as $label => $value) {
+            $item = [
+                "value" => $value,
+                "name" => $label,
+            ];
+            if (array_key_exists($label, $dataColors)) {
+                $item["itemStyle"] = [
+                    'color' => $dataColors[$label],
+                ];
+            }
+            $dataRows[] = $item;
+        }
+
+
+        $cssId = self::generateTag($options);
+
+
+        ?>
+
+        <script type="text/javascript">
+
+
+            <?php static::jsTop(); ?>
+
+            var myChart = echarts.init(document.getElementById('<?php echo $cssId; ?>'));
+
+            var option = {
+                title: {
+                    text: "<?php echo $title; ?>",
+                    subtext: '',
+                    x: '<?php echo $titleAlign; ?>'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    // formatter: "{a} <br/>{b} : {c} ({d}%)", // a is the series name
+                    formatter: function (params) {
+                        if (params.value) {
+                            return params.name + ' : ' + params.value;
+                        }
+                        return "";
+                    }
+                },
+                visualMap: {
+                    min: 0,
+                    max: 1000000,
+                    text: ['High', 'Low'],
+                    realtime: false,
+                    calculable: true,
+                    inRange: {
+                        color: ['lightskyblue', 'yellow', 'orangered']
+                    }
+                },
+                series: [
+                    {
+                        name: 'World Population (2010)',
+                        type: 'map',
+                        mapType: 'world',
+                        roam: true,
+                        aspectScale: 1,
+                        itemStyle: {
+                            emphasis: {label: {show: true}}
+                        },
+                        data:<?php echo json_encode($dataRows); ?>
+                    }
+                ]
+            };
+
+            <?php if(null !== $labelColor): ?>
+            option['label'] = {
+                color: "<?php echo $labelColor; ?>"
+            };
+            <?php endif; ?>
+
+
+            myChart.setOption(option);
+
+            <?php static::jsBottom(); ?>
+        </script>
+        <?php
+    }
+
+
     public static function displayPie(array $options = [])
     {
 
