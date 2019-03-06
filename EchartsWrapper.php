@@ -1,9 +1,9 @@
 <?php
 
 
-namespace EchartsWrapper;
+namespace Ling\EchartsWrapper;
 
-use Bat\StringTool;
+use Ling\Bat\StringTool;
 
 
 /**

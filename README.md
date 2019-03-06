@@ -16,7 +16,7 @@ Install
 ==========
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
-uni import EchartsWrapper
+uni import Ling/EchartsWrapper
 ```
 
 Or just download it and place it where you want otherwise.
@@ -32,7 +32,7 @@ Example in a [kamille](https://github.com/lingtalfi/kamille) app.
 
 
 use Core\Services\A;
-use EchartsWrapper\EchartsWrapper;
+use Ling\EchartsWrapper\EchartsWrapper;
 use Module\Ekom\Api\Layer\OrderLayer;
 use Module\Ekom\Api\Layer\OrderStatusLayer;
 use Module\Ekom\Utils\EkomStatsUtil\EkomStatsUtil;
