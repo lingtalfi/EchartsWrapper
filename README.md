@@ -120,6 +120,10 @@ EEE
 History Log
 ------------------
 
+- 1.3.1 -- 2020-12-04
+
+    - Add lpi-deps.byml file
+
 - 1.3.0 -- 2018-05-16
 
     - add EchartsWrapper::displayCountryMap method
